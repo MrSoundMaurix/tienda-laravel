@@ -47,7 +47,7 @@
           <input type="text" class="form-control" name="description" aria-describedby="description" placeholder="Descripcion breve">
         </div>
 
-        <button type="submit" class="btn btn-primary ">Resgistrar</button>
+        <button type="submit" class="btn btn-primary ">Registrar</button>
         <a href="{{ url('/admin/categories') }}" type="button" class="btn btn-default">Cancelar</a>
         </form>
   

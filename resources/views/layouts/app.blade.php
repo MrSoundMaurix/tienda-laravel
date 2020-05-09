@@ -46,16 +46,35 @@
       <div class="collapse navbar-collapse">
          <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url('/products') }}">Nuestros Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ url('/categories') }}">Categorías </a></li>
-          <!-- Authentication Links -->
-          @guest
-            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Iniciar Sesión</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrate</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url('/') }}"> 
+             <i class="material-icons">home</i>
+            Inicio</a></li>
+            
+            <li class="nav-item"><a class="nav-link" href="{{ url('/products') }}">
+              <i class="material-icons">store</i>Nuestros Productos</a></li>
+              
+              <li class="nav-item"><a class="nav-link" href="{{ url('/categories') }}">
+                <i class="material-icons">storefront</i>
+                Categorías </a></li>
+                
+                <li class="dropdown nav-item">
+                  <a class="nav-link" href="{{ url('/home') }}">
+                    <i class="material-icons">shopping_cart</i>  Compras 
+                  </a>
+                </li>   
+                <!-- Authentication Links -->
+                @guest
+            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">
+              <i class="material-icons">lock_open</i>
+              Iniciar Sesión</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">
+              <i class="material-icons">account_box</i>
+              Registrate</a></li>
           @else
             <li class="dropdown nav-item">
-              <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+              <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+              aria-expanded="false" aria-haspopup="true" v-pre>
+              <i class="material-icons">person</i>
                   {{ Auth::user()->name }} 
                   <span class="caret"></span>
               </a>
@@ -83,6 +102,7 @@
                       <a class="nav-link" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
+                                     <i class="material-icons">close</i>
                           Cerrar Sesión
                       </a>
 

@@ -5,7 +5,7 @@
 
 @section('content')
   <!--jumbotron-->
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('img/categoria.png') }})">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('img/categoria.jpg') }})">
   </div>
   <!-- end jumbotron-->
 
@@ -18,7 +18,8 @@
             <div class="profile">
 
               <div class="avatar">
-              <img src="{{ $category->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              <img src="{{ $category->featured_image_url }}" alt="Circle Image" 
+              class="img-raised rounded img-fluid">
               </div>
 
               @if(session('notification'))

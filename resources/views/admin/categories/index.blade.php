@@ -20,7 +20,7 @@
         <h2 class="title">Listado de Categorias </h2>
         <div class="team">
             <div class="row">
-              <a href="{{ url('admin/categories/create') }}" class="btn btn-primary btn-round">Agregar Categoria</a>              
+              <a href="{{ url('admin/categories/create') }}" class="btn btn-primary btn-round"> <i class="material-icons">add</i>Agregar Categoria</a>              
               <table class="table">
                   <thead>
                       <tr>
