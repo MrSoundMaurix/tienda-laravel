@@ -22,7 +22,7 @@ class CartDetailController extends Controller
         # ¿A que carrito pertenece ?
         # definimos un campo cart en user que devuelva la informacion del carrito de compras
         # activo para ese usuario que esta en la sesion.
-        # Definimos un accessor en el modelo User para poder obtener su id
+        # Definimos un accessor en el modelo User para poder obtener su id.
         $cartDetail->cart_id    = $current_cart_id;
         $cartDetail->product_id = $request->product_id;
         # Buscamos el producto seleccionado para aumentar su nivel de popularidadad:

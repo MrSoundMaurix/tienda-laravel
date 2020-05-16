@@ -7,7 +7,7 @@
     <!--Start container of form-->
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto mt-5">
           
           <!--tarjeta que contiene al form-->
           <div class="card card-login">
@@ -16,7 +16,7 @@
             <form class="form" method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
 
-              <div class="card-header card-header-primary text-center">
+              <div class="card-header card-header-success text-center">
                 
                 <h4 class="card-title">Iniciar Sesión</h4>
                 <div class="social-line">
@@ -93,7 +93,9 @@
               </div>
 
               <div class="footer text-center">
-                <button type="submit" class="btn btn-primary btn-link btn-wd btn-lg">Ingresar</button>
+                <button type="submit" class="btn btn-primary  btn-wd btn-md">
+                <i class="material-icons">vpn_key</i>
+                Ingresar</button>
               </div>
 
              <!-- <a class="btn btn-link" href="{{ route('password.request') }}">

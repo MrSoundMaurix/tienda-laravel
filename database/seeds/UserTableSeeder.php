@@ -17,6 +17,10 @@ class UserTableSeeder extends Seeder
 
             'name' => "Gabriel Antonio",
             'email' => "oliveiragabr@outlook.com",
+            'phone' => "0959072238",
+            'direction' => "Ibarra- Pilanqui",
+
+            'email' => "oliveiragabr@outlook.com",
             'password' => bcrypt("060297"),
             'admin' => true
         ]);

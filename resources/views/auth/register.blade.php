@@ -10,21 +10,22 @@
     <!--Start container of form-->
     <div class="container">
       <div class="row">
-        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+        <div class="col-lg-6 col-md-6 ml-auto mr-auto">
           
           <!--tarjeta que contiene al form-->
           <div class="card card-login">
             <!--Start form-->
             <form class="form" method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
-                <div class="card-header card-header-primary text-center">
+                <div class="card-header-success w-50 align-content-center rounded-right text-center">
                 <h4 class="card-title">Registrate</h4>
               </div>
              
               <p class="description text-center">Registrate para disfrutar de nuestros productos</p>
               <div class="card-body">
-
-                <!-- Nombre -->
+                <div class="row">
+                    <div class="col-sm-6">
+                     <!-- Nombre -->
                 <div class="input-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <span class="input-group-text">
                     <i class="material-icons">face</i>
@@ -38,8 +39,26 @@
                     @endif
                 </div>
                 <!-- End Nombre -->
-
-                <!-- Mail -->
+                    </div>
+                    <div class="col-sm-6">
+             <!-- Phone-->
+             <div class="input-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                    <span class="input-group-text">
+                        <i class="material-icons">phone</i>
+                    </span>                  
+                    <input id="phone" type="text" class="form-control" name="phone" maxlength="10" placeholder="Celular" value="{{ old('phone') }}" required>
+                    @if ($errors->has('phone'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('phone') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <!-- End Phone -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                             <!-- Mail -->
                 <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <span class="input-group-text">
                         <i class="material-icons">mail</i>
@@ -52,8 +71,30 @@
                     @endif
                 </div>
                 <!-- End Mail -->
-                    
-                <!-- Password -->
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                     <!-- Direciton-->
+                <div class="input-group{{ $errors->has('direction') ? ' has-error' : '' }}">
+                    <span class="input-group-text">
+                        <i class="material-icons">home</i>
+                    </span>                  
+                    <textarea id="direction" class="form-control" name="direction" placeholder="Dirección de contacto" value="{{ old('direction') }}" required></textarea>
+                    @if ($errors->has('direction'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('direction') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <!-- End direction -->
+                    </div>
+                   
+                </div>
+               <div class="row">
+                   <div class="col-sm-6">
+                     <!-- Password -->
                 <div class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <span class="input-group-text">
                       <i class="material-icons">lock_outline</i>
@@ -66,8 +107,9 @@
                     @endif      
                 </div>
                 <!-- End Password -->
-
-                <!-- Confirm Password -->
+                   </div>
+                   <div class="col-sm-6">
+                      <!-- Confirm Password -->
                 <div class="input-group">
                     <span class="input-group-text">
                       <i class="material-icons">lock_outline</i>
@@ -76,10 +118,12 @@
                 </div>
                 <!-- End Confirm Password -->
 
-                
+                </div>
+               </div>
+
               </div>
                 <div class="footer text-center">
-                    <button type="submit" class="btn btn-primary btn-link btn-wd btn-lg">Comenzar</button>
+                    <button type="submit" class="btn btn-primary btn-wd  btn-sm">    <i class="material-icons">beenhere</i>   Comenzar</button>
                     <!-- <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a> -->
                 </div>
             </form>

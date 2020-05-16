@@ -83,20 +83,25 @@
                 @if(auth()->user()->admin)
                 <li class="dropdown nav-item">
                   <a class="nav-link" href="{{ url('/admin/products') }}">
-                          Administar Productos
+                    <i class="material-icons">store</i>      Administar Productos
                   </a>
                 </li>
                 <li class="dropdown nav-item">
                   <a class="nav-link" href="{{ url('/admin/categories') }}">
-                          Administrar Categorías
+                    <i class="material-icons">store</i>       Administrar Categorías
+                  </a>
+                </li>
+                <li class="dropdown nav-item">
+                  <a class="nav-link" href="{{ url('/admin/pedidos') }}">
+                    <i class="material-icons">shopping_basket  </i>      Administrar Pedidos
                   </a>
                 </li>
                 @endif
-                <li class="dropdown nav-item">
+                {{-- <li class="dropdown nav-item">
                   <a class="nav-link" href="{{ url('/home') }}">
                       Dashboard
                   </a>
-                </li>     
+                </li>     --}} 
 
                 <li class="dropdown nav-item">
                       <a class="nav-link" href="{{ route('logout') }}"

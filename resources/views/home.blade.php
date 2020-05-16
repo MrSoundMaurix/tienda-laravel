@@ -61,10 +61,10 @@
                 @if(auth()->user()->cart->details->count() > 0)
                 <hr>   
                 <p> Tu carrito de compras tiene {{ auth()->user()->cart->details->count() }} productos </p> 
-                <table class="table">
+                <table class="table table-responsive">
                     <thead>
                         <tr>
-                            <th>Ref</th>
+                            <th class="col-md-1">Ref</th>
                             <th class="col-md-4 ">Nombre</th>
                             <th class="col-md-2 ">Precio</th>
                             <th class="col-md-2 ">Cantidad</th>
@@ -72,18 +72,28 @@
                             <th class="text-rigth">Acciones</th>
                         </tr>
                     </thead>
+                    
                     <tbody>
+                    <?php
+                        $sum=0;
+                           
+                    ?>
                     <!-- recorriendo cada item del carrito -->
                     @foreach(auth()->user()->cart->details as $detail)
+                
                     <tr>
-                        <td class=""><img src="{{ $detail->product->featured_image_url }}" alt="thumb" height="50"></td>
+                        <td class=""><img src="{{ $detail->product->featured_image_url }}" alt="thumb" height="40"></td>
                         <td> <a href="{{ url('/products/'.$detail->product->id) }}"></a>{{ $detail->product->name }}</td>
                         <td class="td-actions ">&dollar; {{ $detail->product->price }} </td>
                         <td> {{ $detail->quantity }}</td>
                         <td> &dollar;{{ $detail->quantity* $detail->product->price }}</td>
+                        <?php
+                        $sum+=$detail->quantity* $detail->product->price;                  
+                    ?>
                         <td class="td-actions col-md-4">
                             <!--/cart va hacia CartController-->
                             <form method="POST" action="{{ url('/cart') }}">
+                                
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
@@ -98,7 +108,18 @@
                             </form>
                         </td>
                     </tr>
+                  
                     @endforeach
+                    <tr>
+                        <th class="col-md-4 bg-warning">TOTAL A PAGAR</th>
+                        <th class="col-md-4  bg-warning"></th>
+                        <th class="col-md-4  bg-warning"></th>
+                        <th class="col-md-4  bg-warning"></th>
+                        <th class="col-md-4  bg-warning"></th>
+                        <th class="col-md-4 bg-warning">&dollar; {{$sum}}</th>
+
+
+                    </tr>
                     </tbody>
                 </table>
 
@@ -131,13 +152,13 @@
                 @yield("content_dashboard_orders")
 
                 @if(auth()->user()->order->count() > 0)
-                <table class="table">
+                <table class="table table-responsive-md">
                     <thead>
                         <tr>
-                            <th class="col-md-2">Codigo</th>
-                            <th>Status</th>
-                            <th>Orden</th>
-                            <th>Recibido</th>
+                            <th class="col-md-2">Código</th>
+                            <th  class="col-md-2">Estado</th>
+                            <th class="col-md-2">Orden</th>
+                            <th class="col-md-2">Recibido</th>
                             <th class="col-md-2">Total</th>
                             <th class="text-rigth">Acciones</th>
                         </tr>
@@ -223,21 +244,32 @@
                       </tr>
                   </thead>
                   <tbody>
+                  <?php $sum=0; 
+                  ?>  
                       @if(auth()->user()->orderDetails)
+                         
                           @foreach(auth()->user()->orderDetails->details as $detail)
                           <tr>
                               <td>{{ $detail->product->name }}</td>
                               <td>&dollar;{{ $detail->product->price }}</td>
                               <td>{{ $detail->quantity }}</td>
+                              
+                              <?php $sum+=$detail->product->price*  $detail->quantity ;
+                            ?>
+                              
                           </tr>
                           @endforeach
                       @endif
-
+                        <tr>
+                            <th class="bg-warning">Total a pagar</th>
+                            <th class="bg-warning"></th>
+                            <th class="bg-warning">  &dollar; {{$sum}}</th>
+                        </tr>
                   </tbody>
               </table>
           </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>

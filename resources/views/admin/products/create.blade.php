@@ -41,7 +41,7 @@
           <!-- Precio -->
           <div class="col-md-6">
             <div class="form-group">
-              <input type="number" aria-describedby="price" class="form-control" name="price" placeholder="Precio">
+              <input type="number" aria-describedby="price"  step="0.01" min="0" class="form-control" name="price" placeholder="Precio">
               <small id="price" class="form-text text-muted">El Precio es obligatorio</small>
             </div>
           </div>
@@ -74,7 +74,7 @@
             <textarea class="form-control" name="desc" rows="3"></textarea>
         </div>
 
-          <button type="submit" class="btn btn-primary align-content-center">Resgistrar</button>
+          <button type="submit" class="btn btn-primary align-content-center">Registrar</button>
         </form>
     </div>
     <!--End Registro de producto -->

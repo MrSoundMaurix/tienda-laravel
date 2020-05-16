@@ -77,6 +77,8 @@ Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(
   #Eliminar
   Route::delete('/categories/{category}', 'CategoryController@destroy');
 
-
+  /* ADMINSTRACION DE PEDIDOS */
+  Route::resource('pedidos', 'PedidoController');   
+ // Route::get('/pedidos', 'PedidoController@index');   
 
 });
