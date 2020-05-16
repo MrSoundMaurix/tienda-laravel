@@ -15,13 +15,13 @@ class UserTableSeeder extends Seeder
         # Creando nuevo usuario   
         User::create([
 
-            'name' => "Gabriel Antonio",
-            'email' => "oliveiragabr@outlook.com",
+            'name' => "Rene Mauricio Ipiales",
+            'email' => "reneipiales120@hotmail.com",
             'phone' => "0959072238",
             'direction' => "Ibarra- Pilanqui",
 
-            'email' => "oliveiragabr@outlook.com",
-            'password' => bcrypt("060297"),
+            'email' => "reneipiales120@hotmail.com",
+            'password' => bcrypt("12345678%%rene"),
             'admin' => true
         ]);
     }
