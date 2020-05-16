@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Inicia Sesión en Shopping Market')
+@section('title','Inicia Sesión en Ibarra Market Online ')
 @section('content')
 <!--El header, con la imagen de fondo ocupa una toda la pantalla-->
 <div class="page-header header-filter" style="background-image: url( {{asset('img/login.jpg')}}); background-size: cover; background-position: top center;">

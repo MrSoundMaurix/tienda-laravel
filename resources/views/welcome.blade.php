@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Bienvenido a Shopping Market')
+@section('title','Bienvenido a Ibarra Market Online')
 <!-- si se quiere agregar una clase que esta en el tag body: -->
 @section('body-class', 'landing-page sidebar-collapse')
 <!-- estilos solo para esta pagina que no se aplicaron-->
@@ -28,7 +28,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="title">Bienvenido a Shopping Market! tu e-commerce desarrollado.</h1>
+          <h1 class="title">Bienvenido a Ibarra Market Online.! Tus productos en línea.</h1>
           <h4>Realiza pedidos en linea y te contactaremos para coordinar la entrega</h4>
           <br>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
@@ -52,10 +52,10 @@
                   {{ session('notification') }}
               </div>
             @endif
-            <h2 class="title">¿Qué es Shopping Market?</h2>
+            <h2 class="title">¿Qué es Ibarra Market Online ?</h2>
             <h5 class="description">Somos una nueva tienda de comercio electronico que ofrece productos 
                 de distintas categorias a precios accesibles. Puedes comparar precios y realizar tus pedidos 
-                cuando lo desees! </h5>
+                cuando lo desees, adicionalmente te enviaremos los pedidos en la comodidad de tu hogar.! </h5>
           </div>
         </div>
  
@@ -78,7 +78,7 @@
                   <i class="material-icons">verified_user</i>
                 </div>
                 <h4 class="info-title">Pago Seguro</h4>
-                <p>Todo pedido que realices será confirmado a traves de tu correo electronico.</p>
+                <p>Todo pedido que realices será confirmado a traves de tu correo electrónico.</p>
               </div>
             </div>
 

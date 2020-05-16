@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Bienvenido a Shopping Market')
+@section('title','Bienvenido a Ibarra Market Online ')
 @section('body-class', 'profile-page sidebar-collapse')
 
 @section('content')

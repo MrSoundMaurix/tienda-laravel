@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Edicion de Categoria')
+@section('title','Edición de Categoría')
 <!-- si se quiere agregar una clase que esta en el tag body: -->
 @section('body-class', 'profile-page sidebar-collapse')
 @section('content')
