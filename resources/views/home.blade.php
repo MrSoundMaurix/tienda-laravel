@@ -60,9 +60,18 @@
                 <!--@yield("content_dashboard_cart")-->
                 @if(auth()->user()->cart->details->count() > 0)
                 <hr>   
+
+                    <div class="modal-body alert-info">
+                            <div class="" role="">
+                                <h4 class="text-dark"><strong>INFORMACIÓN IMPORTANTE !!</strong>  <p> - Para poder realizar su pedido es necesario que el total de la compra sea mayor a 10 $ - <i class="fa fa-money" aria-hidden="true"></i> 
+                                con ello se  habilitará el botón de "REALIZAR PEDIDO"</p>
+                                <p>- Se cobrará el valor del transporte correspondiente a 1.5 $</p>
+                                </h4>
+                            </div>
+                        </div>
                 <p> Tu carrito de compras tiene {{ auth()->user()->cart->details->count() }} productos </p> 
-                <table class="table table-responsive">
-                    <thead>
+                <table class="table table-responsive-md">
+                    <thead class="badge-secondary">
                         <tr>
                             <th class="col-md-1">Ref</th>
                             <th class="col-md-4 ">Nombre</th>
@@ -116,7 +125,7 @@
                         <th class="col-md-4  bg-warning"></th>
                         <th class="col-md-4  bg-warning"></th>
                         <th class="col-md-4  bg-warning"></th>
-                        <th class="col-md-4 bg-warning">&dollar; {{$sum}}</th>
+                        <th class="col-md-4 bg-warning">&dollar; {{$sum+1.5}}</th>
 
 
                     </tr>
@@ -126,9 +135,18 @@
                 <div class="text-center">
                     <form method="post" action="{{ url('/order') }}">
                         {{ csrf_field() }}
+                        @if ($sum>10)
                         <button type="submit" class="btn btn-success btn-round">
                             <i class="material-icons">done</i>Realizar Pedido
                         </button>
+
+                        @else
+                        <button type="submit" class="btn btn-secondary btn-round btn-disabled">
+                            <i class="material-icons">done</i>Realizar Pedido
+                        </button>
+
+                        @endif
+                       
                     </form>
                 </div>
 
@@ -171,7 +189,7 @@
                             <th>{{ $order->status }}</th>
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->arrived_date }}</td>
-                            <td class="td-actions ">&dollar; {{ $order->total }} </td>
+                            <td class="td-actions ">&dollar; {{ $order->total+1.5 }} </td>
                             <td class="td-actions">
                                 <button type="button" rel="tooltip" title="Detalles" class="btn btn-info btn-fab btn-fab-mini btn-round" data-toggle="modal" data-target="#productsModal">
                                     <i class="material-icons">list</i>
@@ -263,7 +281,7 @@
                         <tr>
                             <th class="bg-warning">Total a pagar</th>
                             <th class="bg-warning"></th>
-                            <th class="bg-warning">  &dollar; {{$sum}}</th>
+                            <th class="bg-warning">  &dollar; {{$sum+1.5}}</th>
                         </tr>
                   </tbody>
               </table>

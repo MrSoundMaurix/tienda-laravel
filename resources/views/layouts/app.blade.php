@@ -53,10 +53,7 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('/products') }}">
               <i class="material-icons">store</i>Nuestros Productos</a></li>
               
-              <li class="nav-item"><a class="nav-link" href="{{ url('/categories') }}">
-                <i class="material-icons">storefront</i>
-                Categorías </a></li>
-                
+       
                 <li class="dropdown nav-item">
                   <a class="nav-link" href="{{ url('/home') }}">
                     <i class="material-icons">shopping_cart</i>  Compras 

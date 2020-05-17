@@ -31,7 +31,7 @@
                 <li class="nav-item active">
                     <a class="nav-link active" href="#orders" role="tab" data-toggle="tab">
                         <i class="material-icons">schedule</i>
-                       Ardministración de Pedidos
+                       Administración de Pedidos
                     </a>
                 </li>
     
@@ -72,7 +72,7 @@
                                 <th>{{ $order->status }}</th>
                                 <td>{{ $order->order_date }}</td>
                                 <td>{{ $order->arrived_date }}</td>
-                                <td class="td-actions ">&dollar; {{ $order->total }} </td>
+                                <td class="td-actions ">&dollar; {{ $order->total+1.5 }} </td>
                                 <td class="td-actions">
                                    {{--    <button type="button" rel="tooltip" title="Detalles"
                                      class="btn btn-primary btn-fab btn-fab-mini btn-round" 
@@ -175,7 +175,7 @@
                             <tr>
                                 <th class="bg-warning">Total a pagar</th>
                                 <th class="bg-warning"></th>
-                                <th class="bg-warning">  &dollar; {{$sum}}</th>
+                                <th class="bg-warning">  &dollar; {{$sum+1.5}}</th>
                             </tr>
                       </tbody>
                   </table>
@@ -206,7 +206,7 @@
                     </div>
     
                     <div class="form-group">
-                        <label class="bmd-label-floating" value="">Correo Electronico</label>
+                        <label class="bmd-label-floating" value="">Correo Electrónico</label>
                         <input type="email" class="form-control">
                     </div>
     

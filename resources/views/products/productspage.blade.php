@@ -3,7 +3,7 @@
 @section('body-class', 'profile-page sidebar-collapse')
 @section('content')
 
-<div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('img/productos.jpg') }})">
+<div class="page-header header-filter" data-parallax="true" style="background-image: url({{ asset('img/viveres.jpg') }})">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">

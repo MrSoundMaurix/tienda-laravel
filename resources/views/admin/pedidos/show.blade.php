@@ -100,7 +100,7 @@
                               <th class="bg-warning">Total a pagar</th>
                               <th class="bg-warning"></th>
                               <th class="bg-warning"></th>
-                              <th class="bg-warning">  &dollar; {{$sum}}</th>
+                              <th class="bg-warning">  &dollar; {{$sum+1.5}}</th>
                           </tr>
                     </tbody>
                   </table>

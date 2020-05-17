@@ -15,7 +15,7 @@ class MessageController extends Controller
         $message->message_field = $request->input('message');
         $message->save();
 
-        $notification = "Tu consulta se ha enviado! pronto te contactaremos via email.";
+        $notification = "Tu consulta se ha enviado! pronto te contactaremos vía whatsapp o correo electrónico.";
         return back()->with(compact('notification'));
     }
 }

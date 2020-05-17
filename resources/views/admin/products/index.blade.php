@@ -60,11 +60,11 @@
                                     <i class="material-icons">edit</i>
                                 </a>
 
-                                <a href="{{ url('/admin/products/'.$product->id.'/images') }}" type="button"  title="Imagenes" class="btn btn-warning
+                               {{--  <a href="{{ url('/admin/products/'.$product->id.'/images') }}" type="button"  title="Imagenes" class="btn btn-warning
                                 btn-simple btn-sm">
                                     <i class="material-icons">image</i>
                                 </a>
-                                
+                                 --}}
                                 <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-sm
                                 btn-simple">
                                     <i class="fa fa-times"></i>

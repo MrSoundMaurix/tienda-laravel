@@ -27,7 +27,7 @@ class CartController extends Controller
         $currentCart->status        = "Pendiente";
         $currentCart->save();
 
-        $notification= "Tu pedido se ha registrado correctamente. Te contactaremos via email a la brevedad...";
+        $notification= "Tu pedido se ha registrado correctamente. Te contactaremos whatsapp o via correo eléctrónico a la brevedad...";
         return back()->with(compact('notification'));
     }
 
@@ -43,7 +43,7 @@ class CartController extends Controller
             $order->arrived_date = date('d-m-Y');
         $order->save();  
         
-        $notification           = "¡El status del producto ha cambiado!";
+        $notification           = "¡El estado del producto ha cambiado!";
         return back()->with(compact('notification'));
     }
 

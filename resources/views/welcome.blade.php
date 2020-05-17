@@ -29,7 +29,7 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="title">Bienvenido a Ibarra Market Online.! Tus productos en línea.</h1>
-          <h4>Realiza pedidos en linea y te contactaremos para coordinar la entrega</h4>
+          <h4>Realiza pedidos en línea y te contactaremos para coordinar la entrega</h4>
           <br>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
             <i class="fa fa-play"></i> ¿Cómo funciona?
@@ -53,7 +53,7 @@
               </div>
             @endif
             <h2 class="title">¿Qué es Ibarra Market Online ?</h2>
-            <h5 class="description">Somos una nueva tienda de comercio electronico que ofrece productos 
+            <h5 class="description">Somos una nueva tienda de comercio electrónico que ofrece productos 
                 de distintas categorias a precios accesibles. Puedes comparar precios y realizar tus pedidos 
                 cuando lo desees, adicionalmente te enviaremos los pedidos en la comodidad de tu hogar.! </h5>
           </div>
@@ -68,7 +68,7 @@
                   <i class="material-icons">chat</i>
                 </div>
                 <h4 class="info-title">Atendemos tus dudas</h4>
-                <p>Nuestro equipo atenderá rapidamente cualquier consulta que tengas via chat. ¡Estamos para servirte!</p>
+                <p>Nuestro equipo atenderá rapidamente cualquier consulta que tengas vía whatsapp <i class="fa fa-whatsapp" aria-hidden="true"></i>. ¡Estamos para servirte!</p>
               </div>
             </div>
 
@@ -164,21 +164,21 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="bmd-label-floating">¿Cuál es tu nombre?</label>
-                        <input type="text" name="name_user" class="form-control">
+                        <input type="text" name="name_user" required class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="bmd-label-floating">Tu Correo Electronico</label>
-                    <input type="email" name="email" class="form-control">
+                    <input type="email" name="email" required class="form-control">
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="exampleMessage" class="bmd-label-floating">Plantea tus dudas</label>
-                <textarea type="text" name="message" class="form-control" rows="4" id="exampleMessage"></textarea>
+                <textarea type="text" name="message" required class="form-control" rows="4" id="exampleMessage"></textarea>
               </div>
               <div class="row">
                 <div class="col-md-4 ml-auto mr-auto text-center">
