@@ -18,7 +18,15 @@
             <div class="profile">
 
               <div class="avatar">
-                <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+               
+               
+                  @if($product->foto == null)
+                  <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid"> 
+                
+                  @else
+              <img src="{{ "data:image/" . $product->fototype . ";base64," . $product->foto }}" style="max-width:268px;" class="img-raised rounded-circle img-fluid" >
+              @endif       
+               
               </div>
 
               <div class="name">

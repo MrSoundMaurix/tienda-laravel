@@ -39,11 +39,13 @@
 
           <div class="col-md-6">
               <label class="control-label">Selecciona una imagen para actualizar</label>
-              <input class="form-control" type="file" name="image" class="inputFileHidden">
+              <label class="control-label">Selecciona una imagen</label>
+              <input class="form-control" type="file" name="foto" class="inputFileHidden">
               <!-- SI la categoria tiene imagen, muestra el texto -->
-              @if($category->image)
-                <p class="help-block">Subir solo si desea reemplazar la <a href="{{ asset('/images/categories/'.$category->image) }}" target="_blank">imagen actual</a></p>
-              @endif
+             {{--  @if($category->image)
+                <p class="help-block">Subir solo si desea reemplazar la   <label class="control-label">Selecciona una imagen</label>
+                  <input class="form-control" type="file" name="foto" class="inputFileHidden"></p>
+              @endif --}}
           </div>
         </div>
 
@@ -54,7 +56,7 @@
 
 
         <button type="submit" class="btn btn-primary">Actualizar</button>
-        <a href="/admin/categories" class="btn btn-danger">Cancerlar edición</a>
+        <a href="/admin/categories" class="btn btn-danger">Cancelar edición</a>
         </form>
     </div>
     <!--End Registro de producto -->

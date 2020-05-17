@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $primaryKey = 'id';
+    protected $table = 'products';
+    public $timestamps = true;
+    protected $dates = ['created_at','updated_at'];
+
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
+
+    protected $fillable = ['name','description','description_details','price','popilarity','category_id','foto','fototype','created_at','updated_at'];
+
+    protected $hidden = ['id'];
+
+
     public function category(){ 
         # Un producto pertenece a una categoria
         return $this->belongsTo(Category::class);

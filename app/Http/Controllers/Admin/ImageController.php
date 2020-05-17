@@ -19,7 +19,7 @@ class ImageController extends Controller
     }
 
     public function store(Request $request, $id){
-
+        
         // Almacenar imagen en una carpeta del proyecto y establecerle un nombre
         $file       = $request->file('photo');
         $path       = public_path().'/images/products';

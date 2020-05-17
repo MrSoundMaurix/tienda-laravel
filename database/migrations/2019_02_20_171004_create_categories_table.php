@@ -18,7 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->string('name')->nullable();
             $table->string('description');
             # imagen para cada categoria
-            $table->string('image')->nullable(); 
+            $table->text('foto')->nullable()->default(NULL);
+            $table->text('fototype')->nullable()->default(NULL);
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@
           </div>
         @endif
 
-        <form class="form" method="POST" action="{{ url('/admin/products') }}">
+        <form class="form" method="POST" action="{{ url('/admin/products') }}" enctype="multipart/form-data">
           {{ csrf_field() }}
 
         <!-- Nombre -->
@@ -57,7 +57,7 @@
 
           <div class="col-md-6">
             <div class="form-group"
-            <label for="inputState" class="control-label">Seleccionar Categoria</label>
+            <label for="inputState" class="control-label">Seleccionar Categoría</label>
               <select id="inputState" class="form-control" name="category_id">
                 
                 <option value="0" selected>General</option>
@@ -68,11 +68,27 @@
             </div>
           </div>
         </div>
-        <!-- -->
+        <div class="row">
+
+
+      <div class="col-md-6">
         <div class="form-group">
-            <label for="desc">Descripcion detallada</label>
-            <textarea class="form-control" name="desc" rows="3"></textarea>
+          <label for="desc">Descripcion detallada</label>
+          <textarea class="form-control" name="desc" rows="3"></textarea>
+      </div>
+
+      </div>
+      <div class="col-md-6">
+        <div >
+          <label class="control-label">Selecciona una imagen</label>
+          <input class="form-control" type="file" name="foto" class="inputFileHidden">
+     
         </div>
+      </div>
+        
+        <!-- -->
+        
+      </div>
 
           <button type="submit" class="btn btn-primary align-content-center">Registrar</button>
         </form>

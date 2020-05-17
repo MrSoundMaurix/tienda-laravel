@@ -21,7 +21,10 @@ class CreateProductsTable extends Migration
             $table->text('description_details')->nullable();
             $table->float('price');
             $table->integer('popularity')->default(1);
-
+            
+            $table->text('foto')->nullable()->default(NULL);
+            $table->text('fototype')->nullable()->default(NULL);
+            
             // Un producto siempre va dentro de una categoria
             $table->integer('category_id')->unsigned()->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

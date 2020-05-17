@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use Image;
+use File;
+use DB;
+
+
 
 class ProductController extends Controller
 {
@@ -46,6 +51,17 @@ class ProductController extends Controller
         $product->price               = $request->input('price');   
         $product->description         = $request->input('description');   
         $product->description_details = $request->input('desc');
+        if ($request->hasFile('foto')) {
+            $image = $request->file( 'foto' );
+            $imageType = $image->getClientOriginalExtension();
+            $imageStr = (string) Image::make( $image )->
+                                    resize( 300, null, function ( $constraint ) {
+                                        $constraint->aspectRatio();
+                                    })->encode( $imageType );
+            $product->foto= base64_encode( $imageStr );
+            $product->fototype=$imageType;
+        } 
+
         $product->save();
 
         # responder al cliente
@@ -88,6 +104,16 @@ class ProductController extends Controller
         $product->category_id         = $request->input('category_id');
         $product->description         = $request->input('description');   
         $product->description_details = $request->input('desc');
+        if ($request->hasFile('foto')) {
+            $image = $request->file( 'foto' );
+            $imageType = $image->getClientOriginalExtension();
+            $imageStr = (string) Image::make( $image )->
+                                    resize( 300, null, function ( $constraint ) {
+                                        $constraint->aspectRatio();
+                                    })->encode( $imageType );
+            $product->foto= base64_encode( $imageStr );
+            $product->fototype=$imageType;
+        } 
         $product->save();
 
         return redirect('/admin/products');

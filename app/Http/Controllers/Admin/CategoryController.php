@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use File;
+use Image;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -26,7 +28,22 @@ class CategoryController extends Controller
          añadir una funcionalidad en el modelo Category, creamos una categoria con su info basica */
         $category = Category::create($request->only('name','description'));
         
-        # Si hay una imagen...
+        if ($request->hasFile('foto')) {
+            $image = $request->file( 'foto' );
+            $imageType = $image->getClientOriginalExtension();
+            $imageStr = (string) Image::make( $image )->
+                                    resize( 300, null, function ( $constraint ) {
+                                        $constraint->aspectRatio();
+                                    })->encode( $imageType );
+            $category->foto= base64_encode( $imageStr );
+            $category->fototype=$imageType;
+            $category->save();
+            //$asistenteConferencia->save();
+        }
+
+
+
+    /*     # Si hay una imagen... PROBANDOD ANTIGUA CODIGOO
         if($request->hasFile('image')){
 
             $file       = $request->file('image');
@@ -39,7 +56,7 @@ class CategoryController extends Controller
                 $category->image = $filename;
                 $category->save();
             }
-        }
+        }  */
                 
         # responder al cliente
         return redirect('/admin/categories');
@@ -54,9 +71,36 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category){
           
         $this->validate($request, Category::$rules, Category::$messages);
+        
         $category->update($request->only('name','description'));
         
-        # Si hay una imagen...  
+
+        try{
+           // $asc = AsistenteConferencia::updateOrCreate(['asc_id'=>$id],$request->except('asc_foto'));
+         //  $asc->asc_estado = 0;
+            if ($request->hasFile('foto')) {
+                $image = $request->file( 'foto' );
+                $imageType = $image->getClientOriginalExtension();
+                $imageStr = (string) Image::make( $image )->
+                                        resize( 300, null, function ( $constraint ) {
+                                            $constraint->aspectRatio();
+                                        })->encode( $imageType );
+                $category->foto = base64_encode( $imageStr );
+                $category->ototype = $imageType;
+                $category->save();
+            }
+            return redirect('/admin/categories');
+           // return redirect('conferencia')->with('success','Has reenviado tu información correctamente, espera el correo electrónico de confirmación de pago');
+        }catch(\Exception | QueryException $e){
+            DB::rollback();
+            return back()->withErrors(['exception'=>$e->getMessage()]);
+        }
+
+
+
+//CODIGO ANTIGUO
+
+     /*    # Si hay una imagen...  
         if($request->hasFile('image')){
             dd("entra");
             
@@ -77,7 +121,7 @@ class CategoryController extends Controller
             }
         }
         
-        return redirect('/admin/categories');
+        return redirect('/admin/categories'); */
     }
 
     public function destroy(Category $category){

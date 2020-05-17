@@ -21,44 +21,52 @@
         <div class="team">
             <div class="row">
               <a href="{{ url('admin/products/create') }}" class="btn btn-primary btn-round"> <i class="material-icons">add</i> Agregar Producto</a>              
-              <table class="table">
-                  <thead>
+              <table class="table table-striped table-responsive-md">
+                  <thead class="badge-secondary">
                       <tr>
-                        <th class="col-md-2 text-center"> Nombre</th>
-                        <th class="col-md-2 text-center"> Descripción</th>
-                        <th class="text-center"> Categoría</th>
-                        <th class="text-right">Precio</th>
-                        <th class="text-rigth">Acciones</th>
+                        <th> Foto</th>
+                        <th> Nombre</th>
+                        <th> Descripción</th>
+                        <th > Categoría</th>
+                        <th >Precio</th>
+                        <th>Acciones</th>
                         </tr>
                   </thead>
                   <tbody>
                       @foreach($allProducts as $product)
                       <tr>
-                        
+                        <td>
+                          {{-- <img src="{{ $category->featured_image_url }}" alt="" height="50"> --}}
+                      @if($product->foto == null)
+                          -
+                      @else
+                      <img src="{{ "data:image/" . $product->fototype . ";base64," . $product->foto }}" style="max-width:95px; margin:0;">
+                      @endif
+                        </td>
                         <td>{{ $product->name }}</td>
-                          <td class="col-md-4"> {{ $product->description }}</td>
+                          <td> {{ $product->description }}</td>
                           <td>{{ $product->category->name  }}</td>
-                          <td class="td-actions text-right">&dollar; {{ $product->price }} </td>
-                          <td class="td-actions text-right col-md-4">
+                          <td>&dollar; {{ $product->price }} </td>
+                          <td >
                               <form method="POST" action="{{ url('/admin/products/'.$product->id.'') }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <a href="{{ url('products/'.$product->id) }}" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                                <a href="{{ url('products/'.$product->id) }}" title="Ver producto" class="btn btn-info btn-simple btn-sm">
                                     <i class="material-icons">info</i>
                                 </a>
-                                <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button" rel="tooltip" title="Editar" class="btn btn-success
-                                btn-simple btn-xs">
+                                <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" type="button"  title="Editar" class="btn btn-success
+                                btn-simple btn-sm">
                                     <i class="material-icons">edit</i>
                                 </a>
 
-                                <a href="{{ url('/admin/products/'.$product->id.'/images') }}" type="button" rel="tooltip" title="Imagenes" class="btn btn-warning
-                                btn-simple btn-xs">
+                                <a href="{{ url('/admin/products/'.$product->id.'/images') }}" type="button"  title="Imagenes" class="btn btn-warning
+                                btn-simple btn-sm">
                                     <i class="material-icons">image</i>
                                 </a>
                                 
-                                <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger
-                                btn-simple btn-xs">
+                                <button type="submit" rel="tooltip" title="Eliminar" class="btn btn-danger btn-sm
+                                btn-simple">
                                     <i class="fa fa-times"></i>
                                 </button>
                               </form>

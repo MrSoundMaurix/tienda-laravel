@@ -18,9 +18,13 @@
             <div class="profile">
 
               <div class="avatar">
-              <img src="{{ $category->featured_image_url }}" alt="Circle Image" 
-              class="img-raised rounded img-fluid">
-              </div>
+                @if($category->foto == null)
+                <img src="{{ $category->featured_image_url }}" alt="Circle Image" 
+                class="img-raised rounded img-fluid">
+                </div>
+                @else
+            <img src="{{ "data:image/" . $category->fototype . ";base64," . $category->foto }}" class="img-raised rounded img-fluid">
+            @endif  
 
               @if(session('notification'))
                 <div class="alert alert-success text-center">
@@ -31,17 +35,17 @@
               <div class="name">
                 <h3 class="title">{{ $category->name }}</h3>
               </div>
+              <div class="description text-center">
+                <p>{{ $category->description }}</p>
+              </div>
               <!--End name-->
             </div>
             <!--End profile -->
           </div>
         </div>
-
-        <div class="description text-center">
-          <p>{{ $category->description }}</p>
-        </div>
-
+      
         <div class="section text-center">
+          <hr>
           <h2 class="title">Productos</h2>
           <div class="team">
               <div class="row">
@@ -50,8 +54,15 @@
                       <div class=" card team-player">
                           <div class="card card-plain">
                               <div class="col-md-6 ml-auto mr-auto">    
-                                  <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">  
-                              </div>
+                                @if($product->foto == null)
+                             
+                                <img src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
+                            @else
+                            <img src="{{ "data:image/" . $product->fototype . ";base64," . $product->foto }}" class="img-raised rounded-circle img-fluid" >
+                            @endif
+                             
+                             
+                                </div>
                               <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }}  </a>
                                   <br>
                                   <small class="card-description text-muted">&dollar; {{ $product->price}}</small>

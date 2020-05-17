@@ -16,7 +16,9 @@ class CreateProductImagesTable extends Migration
         Schema::create('product_images', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('url');
+            //$table->string('url');
+            $table->text('foto')->nullable()->default(NULL);
+            $table->text('fototype')->nullable()->default(NULL);
             # Imagen destacada
             $table->boolean('featured')->default(false);
 

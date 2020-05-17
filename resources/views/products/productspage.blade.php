@@ -28,12 +28,18 @@
             <div class="row">
 
                 @foreach($allProducts as $product)
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class=" card card-blog">
                         <div class="card-plain ">
                         <!-- card -->
                             <div  class="card-header card-header-image" >
-                                <img class="card-img-top" src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-fluid"> 
+                              @if($product->foto == null)
+                              <img class="card-img-top" src="{{ $product->featured_image_url }}" alt="Thumbnail Image" class="img-raised img-fluid"> 
+                          @else
+                          <img class="card-img-top" src="{{ "data:image/" . $product->fototype . ";base64," . $product->foto }}" style="max-width:268px;" class="img-raised img-fluid" >
+                          @endif
+
+                             
                             </div>
 
                             <h4 class="card-title"> <a href=" {{ url('/products/'. $product->id) }}"> {{ $product->name }} </a>

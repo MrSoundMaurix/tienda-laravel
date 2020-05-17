@@ -39,7 +39,7 @@
 
           <div class="col-md-6">
               <label class="control-label">Selecciona una imagen</label>
-              <input class="form-control" type="file" name="image" class="inputFileHidden">
+              <input class="form-control" type="file" name="foto" class="inputFileHidden">
           </div>
         </div>
 
